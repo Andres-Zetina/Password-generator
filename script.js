@@ -1,35 +1,29 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  // Set up variables for the password criteria
   var passwordLength = 0;
   var includeLowercase = false;
   var includeUppercase = false;
   var includeNumeric = false;
   var includeSpecial = false;
   
-  // Prompt the user for password length
-  passwordLength = prompt("Enter the desired length of your password (8-128 characters):");
+  passwordLength = prompt("Choose password lengeth must be more than 8 or more and 128 or less:");
   
-  // Validate password length
   if (passwordLength < 8 || passwordLength > 128) {
-    alert("Password length must be between 8 and 128 characters. Please try again.");
+    alert("Password length must be between 8 and 128 characters.");
     return;
   }
   
-  // Prompt the user for character types to include
-  includeLowercase = confirm("Include lowercase letters in the password?");
-  includeUppercase = confirm("Include uppercase letters in the password?");
-  includeNumeric = confirm("Include numeric characters in the password?");
-  includeSpecial = confirm("Include special characters in the password?");
+  includeLowercase = confirm("Include lowercase letters?");
+  includeUppercase = confirm("Include uppercase letters?");
+  includeNumeric = confirm("Include numeric characters?");
+  includeSpecial = confirm("Include special characters?");
   
-  // Validate character type selection
   if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
-    alert("You must select at least one character type to include in the password. Please try again.");
+    alert("You must select atleast one type of charachters to use.");
     return;
   }
   
-  // Set up the character pool based on user's character type selections
   var characterPool = "";
   if (includeLowercase) {
     characterPool += "abcdefghijklmnopqrstuvwxyz";
